@@ -3,7 +3,8 @@ import discord, os, re, random, sys, time, subprocess
 
 app = discord.Client()
 
-token = "Njc5NjAwMzg0NDIyOTY5MzY3.XmcqJw.WMF9zBEmElpqNsN4__EeCkePTqc"
+access_token = os.environ["BOT_TOKEN"]
+token = access_token
 
 @app.event
 async def on_ready():
