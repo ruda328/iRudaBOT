@@ -7,6 +7,8 @@ app = discord.Client()
 access_token = os.environ["BOT_TOKEN"]
 token = access_token
 
+is_server_on = 'true'
+
 @app.event
 async def on_ready():
     print("이루다 봇이 다음과 같이 로그인합니다.")
@@ -15,11 +17,11 @@ async def on_ready():
     print("=====누출되지 않게 하십시오.=====")
     
 # 이루다 봇 게임 하기
-    messages = ['임시서버 가동중', '문의 : 루다#5654']
-    while True:
-        await app.change_presence(status=discord.Status.online, activity=discord.Game(name=messages[0]))
-        messages.append(messages.pop(0))
-        await asyncio.sleep(10)
+    #messages = ['임시서버 가동중', '문의 : 루다#5654']
+    #while True:
+    #    await app.change_presence(status=discord.Status.online, activity=discord.Game(name=messages[0]))
+    #    messages.append(messages.pop(0))
+    #    await asyncio.sleep(10)
 
 @app.event
 async def on_message(message):
@@ -38,6 +40,17 @@ async def on_message(message):
         return None
 
 # 기본명령어
+    if is_server_on == 'false':
+        if message.content == "이루다 임시서버가동":
+            is_server_on = 'true'
+            await channel.send("임시서버가동이 시작되었습니다.")
+        else:
+            return None
+    
+    if message.content == "이루다 임시서버가동중지":
+        is_server_on = 'false'
+        await channel.send("임시서버가동이 중지되었습니다.")
+    
     if message.content == "이루다":
         rspd = rspd + 1
         await channel.send("네, <@"+str(id)+">님! 저 여기있어요!\n당신이 있는 곳은 `#"+str(channel)+"` 이군요!")
