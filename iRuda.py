@@ -27,7 +27,6 @@ async def on_message(message):
     rspd = 0
     id = message.author.id
     channel = message.channel
-    server_status == 'operating'
 
 # 시간모듈
     now = time.localtime()
@@ -280,7 +279,7 @@ async def on_message(message):
         await channel.send("현재는 임시서버가 가동중이므로 사용할 수 없는 기능이예요.")
         
 # 명령어 유효 확인
-    if message.content.startswith("이루다 ") and rspd == 0 and server_status == 'operating':
+    if message.content.startswith("이루다 ") and rspd == 0:
         await channel.send("> 제가 대답할 수 있는게 없네요...\n> 혹시 '이루다 도움말'을 사용해서 다시 알아봐주실 수 있나요?")
 
 app.run(token)
