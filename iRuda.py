@@ -20,8 +20,6 @@ async def on_ready():
     #    await app.change_presence(status=discord.Status.online, activity=discord.Game(name=messages[0]))
     #    messages.append(messages.pop(0))
     #    await asyncio.sleep(10)
-    
-    is_server_on = 'true'
 
 @app.event
 async def on_message(message):
@@ -49,6 +47,9 @@ async def on_message(message):
     
     if message.content == "이루다 임시서버가동중지":
         is_server_on = 'false'
+        f = open("/a.txt", 'w')
+        f.write("a")
+        f.close()
         await channel.send("임시서버가동이 중지되었습니다.")
     
     if message.content == "이루다":
