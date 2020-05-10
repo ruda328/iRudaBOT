@@ -186,7 +186,7 @@ async def on_message(message):
 
     if message.content == "이루다 스릴배팅":
         rspd = rspd + 1
-       await channel.send("현재는 임시서버가 가동중이므로 사용할 수 없는 기능이예요.")
+        await channel.send("현재는 임시서버가 가동중이므로 사용할 수 없는 기능이예요.")
 
     if message.content.startswith("이루다 돈선물"):
         rspd = rspd + 1
