@@ -49,10 +49,10 @@ async def on_message(message):
     
     if message.content == "이루다 임시서버가동중지":
         is_server_on = 'false'
-        f = open("/a.txt", 'w')
-        f.write("a")
+        f = open("status.txt", 'r')
+        server_status = f.read()
         f.close()
-        await channel.send("임시서버가동이 중지되었습니다.")
+        await channel.send("임시서버가동이 중지되었습니다. "+server_status)
     
     if message.content == "이루다":
         rspd = rspd + 1
