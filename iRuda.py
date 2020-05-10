@@ -103,7 +103,7 @@ async def on_message(message):
 
     if message.content == "이루다 시계":
         rspd = rspd + 1
-        await channel.send("현재 시각을 알려드릴게요. (이루다 봇 서버 시각입니다.)\n```KST "+now_time+"```")
+        await channel.send("현재 시각을 알려드릴게요. (이루다 봇 서버 시각입니다.)\n```UCT(세계협정시) "+now_time+"```")
 
     if message.content.startswith("이루다 가르치기 "):
         rspd = rspd + 1
