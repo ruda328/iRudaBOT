@@ -219,7 +219,7 @@ async def on_message(message):
         
     if message.content.startswith("이루다 스톤코드 ") and rspd == 0:
         rspd = rspd + 1
-       await channel.send("현재는 임시서버가 가동중이므로 사용할 수 없는 기능이예요.")
+        await channel.send("현재는 임시서버가 가동중이므로 사용할 수 없는 기능이예요.")
 
     if message.content.startswith("이루다 스톤충전 "):
         rspd = rspd + 1
