@@ -7,8 +7,6 @@ app = discord.Client()
 access_token = os.environ["BOT_TOKEN"]
 token = access_token
 
-is_server_on = 'true'
-
 @app.event
 async def on_ready():
     print("이루다 봇이 다음과 같이 로그인합니다.")
@@ -29,6 +27,7 @@ async def on_message(message):
     rspd = 0
     id = message.author.id
     channel = message.channel
+    is_server_on = 'true'
 
 # 시간모듈
     now = time.localtime()
