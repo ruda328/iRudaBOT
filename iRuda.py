@@ -27,6 +27,7 @@ async def on_message(message):
     rspd = 0
     id = message.author.id
     channel = message.channel
+    server_status == 'operating'
 
 # 시간모듈
     now = time.localtime()
