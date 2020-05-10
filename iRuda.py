@@ -28,7 +28,9 @@ async def on_message(message):
     id = message.author.id
     channel = message.channel
     
-    is_server_on = 'true'
+    f = open("status.txt", 'r')
+    server_status = f.read()
+    f.close()
 
 # 시간모듈
     now = time.localtime()
@@ -40,23 +42,20 @@ async def on_message(message):
         return None
 
 # 기본명령어
-    if is_server_on == 'false':
+    if server_status == 'off':
         if message.content == "이루다 임시서버가동":
-            is_server_on = 'true'
+            f = open("status.txt", 'w')
+            f.write("on")
+            f.close()
             await channel.send("임시서버가동이 시작되었습니다.")
         else:
             return None
     
-    if message.content == "이루다 임시서버가동중지":
-        is_server_on = 'false'
-        f = open("status.txt", 'r')
-        server_status = f.read()
-        f.close()
-        
+    if message.content == "이루다 임시서버가동중지":    
         f = open("status.txt", 'w')
         f.write("off")
         f.close()
-        await channel.send("임시서버가동이 중지되었습니다. "+server_status)
+        await channel.send("임시서버가동이 중지되었습니다. server_status : "+server_status)
     
     if message.content == "이루다":
         rspd = rspd + 1
