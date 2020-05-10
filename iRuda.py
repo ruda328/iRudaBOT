@@ -23,6 +23,8 @@ async def on_ready():
 
 @app.event
 async def on_message(message):
+    
+    rspd = 0
 
 # 시간모듈
     now = time.localtime()
