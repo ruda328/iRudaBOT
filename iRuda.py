@@ -52,6 +52,10 @@ async def on_message(message):
         f = open("status.txt", 'r')
         server_status = f.read()
         f.close()
+        
+        f = open("status.txt", 'w')
+        f.write("off")
+        f.close()
         await channel.send("임시서버가동이 중지되었습니다. "+server_status)
     
     if message.content == "이루다":
