@@ -45,19 +45,25 @@ async def on_message(message):
     if server_status == 'off':
         if message.content == "이루다 임시서버가동":
             rspd = rspd + 1
-            f = open("status.txt", 'w')
-            f.write("on")
-            f.close()
-            await channel.send("임시서버가동이 시작되었습니다.")
+            if id == 500251192883150859:
+                f = open("status.txt", 'w')
+                f.write("on")
+                f.close()
+                await channel.send("임시서버가동이 시작되었습니다.")
+            else:
+                await channel.send("<@"+str(id)+">님은 이 명령어를 사용할 권한이 없어요!")
         else:
             return None
     
     if message.content == "이루다 임시서버가동중지":
         rspd = rspd + 1
-        f = open("status.txt", 'w')
-        f.write("off")
-        f.close()
-        await channel.send("임시서버가동이 중지되었습니다.")
+        if id == 500251192883150859:
+            f = open("status.txt", 'w')
+            f.write("off")
+            f.close()
+            await channel.send("임시서버가동이 중지되었습니다.")
+        else:
+            await channel.send("<@"+str(id)+">님은 이 명령어를 사용할 권한이 없어요!")
     
     if message.content == "이루다":
         rspd = rspd + 1
