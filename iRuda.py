@@ -49,7 +49,7 @@ async def on_message(message):
                 f = open("status.txt", 'w')
                 f.write("on")
                 f.close()
-                await app.change_presence(status=discord.Status.online, activity="임시서버가 가동중이예요.")
+                await app.change_presence(activity=discord.Game(name="임시서버가 가동중이예요!"))
                 
                 await channel.send("임시서버가동이 시작되었습니다.")
             else:
