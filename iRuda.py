@@ -72,8 +72,12 @@ async def on_message(message):
         await channel.send("네, <@"+str(id)+">님! 저 여기있어요!\n당신이 있는 곳은 `#"+str(channel)+"` 이군요!")
 
     if message.content == "이루다 도움말":
-        await channel.send("현재는 임시서버가 가동중이므로 도움말 기능을 사용할 수 없어요.")
         rspd = rspd + 1
+        f = open("help.txt", 'r')
+        comm_help = f.read()
+        f.close()
+        
+        await channel.send(comm_help)
 
     if message.content == "이루다 호출":
         await channel.send("그럼 호출해볼게요!\n(임시서버 가동중이라서 안 올 확률이 커요.)")
