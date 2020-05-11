@@ -49,6 +49,8 @@ async def on_message(message):
                 f = open("status.txt", 'w')
                 f.write("on")
                 f.close()
+                await app.change_presence(status=discord.Status.online, activity="임시서버가 가동중이예요.")
+                
                 await channel.send("임시서버가동이 시작되었습니다.")
             else:
                 await channel.send("<@"+str(id)+">님은 이 명령어를 사용할 권한이 없어요!")
@@ -163,7 +165,7 @@ async def on_message(message):
         
     if message.content == "이루다 꺼져":
         rspd = rspd + 1
-        await channel.send("현재는 임시서버가 가동중이므로 사용할 수 없는 기능이예요.")
+        await channel.send("임시서버에서는 사용할 수 없는 기능이예요.")
 
     if message.content.startswith("이루다 서버점검설정"):
         rspd = rspd + 1
