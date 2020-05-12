@@ -80,7 +80,7 @@ async def on_message(message):
         await channel.send("도움말은 제가 DM으로 보내드릴테니, 확인해주세요!")
 
         user = app.get_user(int(id))
-        await user.send(comm_help1)
+        await user.send(comm_help)
 
     if message.content == "이루다 호출":
         await channel.send("그럼 호출해볼게요!\n(임시서버 가동중이라서 안 올 확률이 커요.)")
