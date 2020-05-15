@@ -13,6 +13,10 @@ async def on_ready():
     print(app.user.name)
     print(app.user.id)
     print("=====누출되지 않게 하십시오.=====")
+
+    f = open("status.txt", 'w')
+    f.write("off")
+    f.close()    
     
 # 이루다 봇 게임 하기
     #messages = ['임시서버 가동중', '문의 : 루다#5654']
