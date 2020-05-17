@@ -31,6 +31,9 @@ async def on_message(message):
     rspd = 0
     id = message.author.id
     channel = message.channel
+    f = open("status.txt", 'r')
+    server_status = f.read()
+    f.close()
 
 # 시간모듈
     now = time.localtime()
