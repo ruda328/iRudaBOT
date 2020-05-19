@@ -35,7 +35,7 @@ async def on_message(message):
     rspd = 0
     id = message.author.id
     channel = message.channel
-    server_staus = channel = str(app.get_channel(712107239904641096))
+    server_staus = str(app.get_channel(712107239904641096))
 
 # 시간모듈
     now = time.localtime()
