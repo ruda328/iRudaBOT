@@ -25,7 +25,7 @@ async def on_message(message):
     
     rspd = 0
     id = message.author.id
-    server_status = str(app.get_channel(712107239904641096))        
+    server_status = str(app.get_channel(712105751845535747))        
     channel = message.channel
 
 # 시간모듈
@@ -57,6 +57,7 @@ async def on_message(message):
         await user.send(comm_help)
         
     if message.content == "이루다 서버상태":
+        rspd = rspd + 1
         await channel.send("임시서버감지 : "+server_status)
 
     if message.content == "이루다 호출":
