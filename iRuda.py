@@ -64,9 +64,9 @@ async def on_message(message):
                 await discord.VoiceChannel.edit(channel, name='TEMP SERVER : ON')
                 await app.change_presence(activity=discord.Game(name="임시서버가 가동중이예요!"))
                 
-                await channel.send("임시서버가동이 강제 시작되었습니다.")
+                await message.channel.send("임시서버가동이 강제 시작되었습니다.")
             else:
-                await channel.send("<@"+str(id)+">님은 이 명령어를 사용할 권한이 없어요!")
+                await message.channel.send("<@"+str(id)+">님은 이 명령어를 사용할 권한이 없어요!")
         else:
             return None
     
@@ -75,9 +75,9 @@ async def on_message(message):
         if id == 500251192883150859:
             channel = app.get_channel(712107239904641096)
             await discord.VoiceChannel.edit(channel, name='TEMP SERVER : OFF')
-            await channel.send("임시서버가동이 강제 중지되었습니다.")
+            await meesage.channel.send("임시서버가동이 강제 중지되었습니다.")
         else:
-            await channel.send("<@"+str(id)+">님은 이 명령어를 사용할 권한이 없어요!")
+            await mesaage.channel.send("<@"+str(id)+">님은 이 명령어를 사용할 권한이 없어요!")
     
     if message.content == "이루다":
         rspd = rspd + 1
