@@ -40,6 +40,8 @@ async def on_message(message):
 # 기본명령어 
     if server_status == 'MAIN SERVER : ON':
         return None
+    else:
+        await app.change_presence(activity=discord.Game(name="임시서버 가동중!"))
     
     if message.content == "이루다":
         rspd = rspd + 1
