@@ -13,15 +13,6 @@ async def on_ready():
     print(app.user.name)
     print(app.user.id)
     print("=====누출되지 않게 하십시오.=====")
-    
-    channel = str(app.get_channel(712105751845535747))
-    if channel == 'MAIN SERVER : ON':
-        channel = app.get_channel(712107239904641096)
-        await discord.VoiceChannel.edit(channel, name='TEMP SERVER : OFF')
-    else:
-        channel = app.get_channel(712107239904641096)
-        await discord.VoiceChannel.edit(channel, name='TEMP SERVER : ON')
-    
 # 이루다 봇 게임 하기
     #messages = ['임시서버 가동중', '문의 : 루다#5654']
     #while True:
@@ -34,16 +25,7 @@ async def on_message(message):
     
     rspd = 0
     id = message.author.id
-    server_status = str(app.get_channel(712107239904641096))
-    
-    channel = str(app.get_channel(712105751845535747))
-    if channel == 'MAIN SERVER : ON':
-        channel = app.get_channel(712107239904641096)
-        await discord.VoiceChannel.edit(channel, name='TEMP SERVER : OFF')
-    else:
-        channel = app.get_channel(712107239904641096)
-        await discord.VoiceChannel.edit(channel, name='TEMP SERVER : ON')
-        
+    server_status = str(app.get_channel(712107239904641096))        
     channel = message.channel
 
 # 시간모듈
@@ -57,27 +39,7 @@ async def on_message(message):
 
 # 기본명령어 
     if server_status == 'MAIN SERVER : ON':
-        if message.content == "이루다 임시서버가동":
-            rspd = rspd + 1
-            if id == 500251192883150859:
-                channel = app.get_channel(712107239904641096)
-                await discord.VoiceChannel.edit(channel, name='TEMP SERVER : ON')
-                await app.change_presence(activity=discord.Game(name="임시서버가 가동중이예요!"))
-                
-                await message.channel.send("임시서버가동이 강제 시작되었습니다.")
-            else:
-                await message.channel.send("<@"+str(id)+">님은 이 명령어를 사용할 권한이 없어요!")
-        else:
             return None
-    
-    if message.content == "이루다 임시서버가동중지":
-        rspd = rspd + 1
-        if id == 500251192883150859:
-            channel = app.get_channel(712107239904641096)
-            await discord.VoiceChannel.edit(channel, name='TEMP SERVER : OFF')
-            await message.channel.send("임시서버가동이 강제 중지되었습니다.")
-        else:
-            await message.channel.send("<@"+str(id)+">님은 이 명령어를 사용할 권한이 없어요!")
     
     if message.content == "이루다":
         rspd = rspd + 1
