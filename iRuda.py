@@ -39,7 +39,7 @@ async def on_message(message):
 
 # 기본명령어 
     if server_status == 'MAIN SERVER : ON':
-            return None
+        return None
     
     if message.content == "이루다":
         rspd = rspd + 1
