@@ -14,7 +14,7 @@ async def on_ready():
     print(app.user.id)
     print("=====누출되지 않게 하십시오.=====")
     
-    channel = app.get_channel(712105751845535747)
+    channel = str(app.get_channel(712105751845535747))
     if channel == 'MAIN SERVER : ON':
         channel = app.get_channel(712107239904641096)
         await discord.VoiceChannel.edit(channel, name='TEMP SERVER : OFF')
@@ -36,7 +36,7 @@ async def on_message(message):
     id = message.author.id
     server_status = str(app.get_channel(712107239904641096))
     
-    channel = app.get_channel(712105751845535747)
+    channel = str(app.get_channel(712105751845535747))
     if channel == 'MAIN SERVER : ON':
         channel = app.get_channel(712107239904641096)
         await discord.VoiceChannel.edit(channel, name='TEMP SERVER : OFF')
