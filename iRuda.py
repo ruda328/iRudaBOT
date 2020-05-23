@@ -40,13 +40,10 @@ async def on_message(message):
 # 기본명령어 
     if server_status == 'MAIN SERVER : ON':
         if message.content == "이루다 임시서버 -f 시작":
-            if id == 500251192883150859:
-                channel = app.get_channel(712105751845535747)
-                await discord.VoiceChannel.edit(channel, name='MAIN SERVER : OFF')
+            channel = app.get_channel(712105751845535747)
+            await discord.VoiceChannel.edit(channel, name='MAIN SERVER : OFF')
             
-                await message.channel.send("이루다 봇의 임시서버가 강제로 시작되었습니다.\n```주의 : 이루다 봇의 메인서버가 켜져있을 경우 메인서버와 충돌을 일으켜 큰 문제가 발생할 수 있습니다.```")
-            else:
-                await message.channel.send("당신은 이 명령어를 사용할 권한이 없습니다.")
+            await message.channel.send("이루다 봇의 임시서버가 강제로 시작되었습니다.\n```주의 : 이루다 봇의 메인서버가 켜져있을 경우 메인서버와 충돌을 일으켜 큰 문제가 발생할 수 있습니다.```")
         else:
             return None
     else:
