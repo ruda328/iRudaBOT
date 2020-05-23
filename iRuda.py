@@ -40,6 +40,7 @@ async def on_message(message):
 # 기본명령어 
     if server_status == 'MAIN SERVER : ON':
         if message.content == "이루다 임시서버 -f 시작":
+            rspd = rspd + 1
             channel = app.get_channel(712105751845535747)
             await discord.VoiceChannel.edit(channel, name='MAIN SERVER : OFF')
             
